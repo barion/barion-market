@@ -55,8 +55,7 @@ var BarionMarket = (function(){
         var action = {
             "action": "close"
         }
-        var data = JSON.stringify(action);
-        this.postToBarionHandler(data, null);
+        this.postToBarionHandler(action, null);
     };
 
     /**
@@ -70,8 +69,7 @@ var BarionMarket = (function(){
             "action": "getDefaultAddress"
         }
         this.callbacks.defaultAddress = callback;
-        var data = JSON.stringify(action);
-        this.postToBarionHandler(data, callback);
+        this.postToBarionHandler(action, callback);
     };
 
     /**
@@ -85,8 +83,7 @@ var BarionMarket = (function(){
             "action": "selectAddress"
         }
         this.callbacks.address = callback;
-        var data = JSON.stringify(action);
-        this.postToBarionHandler(data, callback);
+        this.postToBarionHandler(action, callback);
     };
 
     /**
@@ -100,8 +97,7 @@ var BarionMarket = (function(){
             "action" : "getCustomer"
         }
         this.callbacks.customer = callback;
-        var data = JSON.stringify(action);
-        this.postToBarionHandler(data, callback);
+        this.postToBarionHandler(action, callback);
     }
 
     /**
@@ -115,8 +111,7 @@ var BarionMarket = (function(){
             "action": "selectVehicle"
         }
         this.callbacks.vehicle = callback;
-        var data = JSON.stringify(action);
-        this.postToBarionHandler(data, callback);
+        this.postToBarionHandler(action, callback);
     }
     
     /**
