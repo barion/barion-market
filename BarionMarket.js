@@ -4,7 +4,8 @@ var BarionMarket = (function(){
             vehicle: null,
             defaultAddress: null,
             address: null,
-            customer: null
+            customer: null,
+            lastUsedVehicle: null
         };
     }
 
@@ -46,6 +47,12 @@ var BarionMarket = (function(){
             language: "hu_HU",
             token: "123456"
         })*/,
+        getLastUsedVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}"
+        /*JSON.stringify({
+            licensePlate: "TEST001",
+            countryCode: "HU",
+            category: "CAR"
+        })*/
     }
 
     /**
@@ -115,6 +122,20 @@ var BarionMarket = (function(){
     }
     
     /**
+     * If you call this method you will get the last used vehicle in the callback function.
+     */
+    BarionMarket.prototype.getLastUsedVehicle = function(callback) {
+        if (!isValid(callback)){
+            return;
+        }
+        var action = {
+            "action": "getLastUsedVehicle"
+        }
+        this.callbacks.lastUsedVehicle = callback;
+        this.postToBarionHandler(action, callback);
+    }
+
+    /**
      * This method send data to android and ios platforms.
      */
     BarionMarket.prototype.postToBarionHandler = function (obj, callback) {
@@ -142,6 +163,9 @@ var BarionMarket = (function(){
                     break;
                 case this.callbacks.customer:
                     callback(this.testData.getCustomer);
+                    break;
+                case this.callbacks.lastUsedVehicle:
+                    callback(this.testData.getLastUsedVehicle);
                     break;
                 default:
                     alert("Plugin closed");
