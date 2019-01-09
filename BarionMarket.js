@@ -13,46 +13,15 @@ var BarionMarket = (function(){
      * Testing data
      */
     BarionMarket.prototype.testData = {
-        selectAddress: "{\"countryCode\":\"HU\",\"city\":\"Budapest\",\"street\":\"Infopark setany\",\"streetNumber\":\"1\",\"postalCode\":\"1117\",\"firstName\":\"Kovacs\",\"lastName\":\"Istvan\",\"companyName\":null}"
-        /*JSON.stringify({
-                countryCode: "HU",
-                city: "Budapest",
-                street: "Infopark setany",
-                streetNumber: "1",
-                postalCode: "1117",
-                firstName: "Kovacs",
-                lastName: "Istvan",
-                companyName: null
-        })*/,
-        getDefaultAddress: "{\"countryCode\":\"HU\",\"city\":\"Budapest\",\"street\":\"Infopark setany\",\"streetNumber\":\"1\",\"postalCode\":\"1117\",\"firstName\":\"Kovacs\",\"lastName\":\"Istvan\",\"companyName\":null}"
-        /*JSON.stringify({
-                countryCode: "HU",
-                city: "Budapest",
-                street: "Infopark setany",
-                streetNumber: "1",
-                postalCode: "1117",
-                firstName: "Kovacs",
-                lastName: "Istvan",
-                companyName: null
-        })*/,
-        selectVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}"
-        /*JSON.stringify({
-            licensePlate: "TEST001",
-            countryCode: "HU",
-            category: "CAR"
-        })*/,
-        getCustomer: "{\"loginName\":\"asd@example.com\",\"language\":\"hu_HU\",\"token\":\"123456\"}"
-        /*JSON.stringify({
-            loginName: "asd@example.com",
-            language: "hu_HU",
-            token: "123456"
-        })*/,
+        selectAddress: "{\"location\": {\"region\": \"Fejer\",\"city\": \"Moha\",\"street\": \"Dozsa Utca\",\"postalCode\": \"8042\",\"stairway\": \"\",\"floor\": \"\",\"geolocation\": {\"longitude\": 18.336760999999999,\"latitude\": 47.241287200000002},\"countryCode\": \"HU\",\"houseNumber\": \"6\",\"door\": \"\",\"doorBell\": \"\"},\"noteForDelivery\": \"\",\"customerName\": {\"firstName\": \"Takacs\",\"organizationName\": \"\",\"lastName\": \"Laszlo\"},\"phoneNumber\": \"\",\"taxNumber\": \"\",\"addressType\": \"Individual\",\"name\": \"\"}",
+        
+        getDefaultAddress: "{\"location\": {\"region\": \"Fejer\",\"city\": \"Moha\",\"street\": \"Dozsa Utca\",\"postalCode\": \"8042\",\"stairway\": \"\",\"floor\": \"\",\"geolocation\": {\"longitude\": 18.336760999999999,\"latitude\": 47.241287200000002},\"countryCode\": \"HU\",\"houseNumber\": \"6\",\"door\": \"\",\"doorBell\": \"\"},\"noteForDelivery\": \"\",\"customerName\": {\"firstName\": \"Takacs\",\"organizationName\": \"\",\"lastName\": \"Laszlo\"},\"phoneNumber\": \"\",\"taxNumber\": \"\",\"addressType\": \"Individual\",\"name\": \"\"}",
+        
+        selectVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}",
+
+        getCustomer: "{\"loginName\":\"asd@example.com\",\"language\":\"hu_HU\",\"token\":\"123456\"}",
+        
         getLastUsedVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}"
-        /*JSON.stringify({
-            licensePlate: "TEST001",
-            countryCode: "HU",
-            category: "CAR"
-        })*/
     }
 
     /**
