@@ -13,9 +13,9 @@ var BarionMarket = (function(){
      * Testing data
      */
     BarionMarket.prototype.testData = {
-        selectAddress: "{\"location\": {\"region\": \"Fejer\",\"city\": \"Moha\",\"street\": \"Dozsa Utca\",\"postalCode\": \"8042\",\"stairway\": \"\",\"floor\": \"\",\"geolocation\": {\"longitude\": 18.336760999999999,\"latitude\": 47.241287200000002},\"countryCode\": \"HU\",\"houseNumber\": \"6\",\"door\": \"\",\"doorBell\": \"\"},\"noteForDelivery\": \"\",\"customerName\": {\"firstName\": \"Takacs\",\"organizationName\": \"\",\"lastName\": \"Laszlo\"},\"phoneNumber\": \"\",\"taxNumber\": \"\",\"addressType\": \"Individual\",\"name\": \"\"}",
+        selectAddress: "{\"location\": {\"region\": \"Fejer\",\"city\": \"Moha\",\"street\": \"Dozsa Utca\",\"postalCode\": \"8042\",\"stairway\": \"\",\"floor\": \"\",\"countryCode\": \"HU\",\"houseNumber\": \"6\",\"door\": \"\",\"doorBell\": \"\"},\"noteForDelivery\": \"\",\"customerName\": {\"firstName\": \"Takacs\",\"organizationName\": \"\",\"lastName\": \"Laszlo\"},\"phoneNumber\": \"\",\"taxNumber\": \"\",\"addressType\": \"Individual\",\"name\": \"\"}",
         
-        getDefaultAddress: "{\"location\": {\"region\": \"Fejer\",\"city\": \"Moha\",\"street\": \"Dozsa Utca\",\"postalCode\": \"8042\",\"stairway\": \"\",\"floor\": \"\",\"geolocation\": {\"longitude\": 18.336760999999999,\"latitude\": 47.241287200000002},\"countryCode\": \"HU\",\"houseNumber\": \"6\",\"door\": \"\",\"doorBell\": \"\"},\"noteForDelivery\": \"\",\"customerName\": {\"firstName\": \"Takacs\",\"organizationName\": \"\",\"lastName\": \"Laszlo\"},\"phoneNumber\": \"\",\"taxNumber\": \"\",\"addressType\": \"Individual\",\"name\": \"\"}",
+        getDefaultAddress: "{\"location\": {\"region\": \"Fejer\",\"city\": \"Moha\",\"street\": \"Dozsa Utca\",\"postalCode\": \"8042\",\"stairway\": \"\",\"floor\": \"\",\"countryCode\": \"HU\",\"houseNumber\": \"6\",\"door\": \"\",\"doorBell\": \"\"},\"noteForDelivery\": \"\",\"customerName\": {\"firstName\": \"Takacs\",\"organizationName\": \"\",\"lastName\": \"Laszlo\"},\"phoneNumber\": \"\",\"taxNumber\": \"\",\"addressType\": \"Individual\",\"name\": \"\"}",
         
         selectVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}",
 
@@ -120,25 +120,29 @@ var BarionMarket = (function(){
         if (typeof handler != "undefined" && handler != null) {
             handler.postMessage(message);
         } else {
-            switch (callback) {
-                case this.callbacks.vehicle: 
-                    callback(this.testData.selectVehicle);
-                    break;
-                case this.callbacks.address:
-                    callback(this.testData.selectAddress);
-                    break;
-                case this.callbacks.defaultAddress:
-                    callback(this.testData.getDefaultAddress);
-                    break;
-                case this.callbacks.customer:
-                    callback(this.testData.getCustomer);
-                    break;
-                case this.callbacks.lastUsedVehicle:
-                    callback(this.testData.getLastUsedVehicle);
-                    break;
-                default:
-                    alert("Plugin closed");
-                    break;
+            if (callback == null || callback == "undefined"){
+                alert("Plugin closed");
+            } else {
+                switch (callback) {
+                    case this.callbacks.vehicle: 
+                        callback(this.testData.selectVehicle);
+                        break;
+                    case this.callbacks.address:
+                        callback(this.testData.selectAddress);
+                        break;
+                    case this.callbacks.defaultAddress:
+                        callback(this.testData.getDefaultAddress);
+                        break;
+                    case this.callbacks.customer:
+                        callback(this.testData.getCustomer);
+                        break;
+                    case this.callbacks.lastUsedVehicle:
+                        callback(this.testData.getLastUsedVehicle);
+                        break;
+                    default:
+                        alert("Plugin closed");
+                        break;
+                }
             }
         }
     };
