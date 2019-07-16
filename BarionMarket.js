@@ -5,7 +5,8 @@ var BarionMarket = (function(){
             defaultAddress: null,
             address: null,
             customer: null,
-            lastUsedVehicle: null
+            lastUsedVehicle: null,
+            aztecCode: null
         };
     }
 
@@ -21,7 +22,9 @@ var BarionMarket = (function(){
 
         getCustomer: "{\"loginName\":\"asd@example.com\",\"language\":\"hu_HU\",\"token\":\"123456\"}",
         
-        getLastUsedVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}"
+        getLastUsedVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}",
+
+        aztecCode: "{\"code\":\"123456789\"}"
     }
 
     /**
@@ -104,6 +107,17 @@ var BarionMarket = (function(){
         this.postToBarionHandler(action, callback);
     }
 
+    BarionMarket.prototype.readAztecCode = function(callback) {
+        if (!isValid(callback)){
+            return;
+        }
+        var action = {
+            "action": "readAztecCode"
+        }
+        this.callbacks.readAztecCode = callback;
+        this.postToBarionHandler(action, callback);
+    }
+
     /**
      * This method send data to android and ios platforms.
      */
@@ -138,6 +152,9 @@ var BarionMarket = (function(){
                         break;
                     case this.callbacks.lastUsedVehicle:
                         callback(this.testData.getLastUsedVehicle);
+                        break;
+                    case this.callbacks.readAztecCode:
+                        callback(this.testData.aztecCode);
                         break;
                     default:
                         alert("Plugin closed");
