@@ -153,7 +153,7 @@ var BarionMarket = (function(){
                     case this.callbacks.lastUsedVehicle:
                         callback(this.testData.getLastUsedVehicle);
                         break;
-                    case this.callbacks.readAztecCode:
+                    case this.callbacks.aztecCode:
                         callback(this.testData.aztecCode);
                         break;
                     default:
