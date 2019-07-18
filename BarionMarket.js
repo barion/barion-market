@@ -114,7 +114,7 @@ var BarionMarket = (function(){
         var action = {
             "action": "readAztecCode"
         }
-        this.callbacks.readAztecCode = callback;
+        this.callbacks.aztecCode = callback;
         this.postToBarionHandler(action, callback);
     }
 
