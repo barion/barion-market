@@ -20,7 +20,7 @@ var BarionMarket = (function(){
         
         selectVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}",
 
-        getCustomer: "{\"loginName\":\"asd@example.com\",\"language\":\"hu_HU\",\"token\":\"123456\"}",
+        getCustomer: "{\"loginName\":\"asd@example.com\",\"language\":\"hu_HU\",\"token\":\"123456\", \"accountOwnerType\":\"Individual\"}",
         
         getLastUsedVehicle: "{\"licensePlate\":\"TEST001\",\"countryCode\":\"HU\",\"category\":\"CAR\"}",
 
